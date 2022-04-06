@@ -1,0 +1,71 @@
+.MainGrid {
+    justify-content: center;
+    margin: 1vw 10vw 0px 10vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.MainGridItemNonRelative {
+    width: 20vw;
+    height: auto;
+    margin-left: .5vw;
+    margin-right: .5vw;
+    filter: drop-shadow(2px 3px 3px rgba(0, 0, 0, 0.4));
+}
+
+.MainGridItem {
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    border: none;
+}
+
+.MainGridItem:after {
+    padding-top: 40%;
+    /* 16:9 ratio */
+    display: block;
+    content: '';
+}
+
+.MainGridItemContainer {
+    color: white;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+    display: inline-block;
+    border-radius: 1vw;
+    width: 100%;
+    margin-bottom: 1vw;
+}
+
+.MainGridItemTitle {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-size: 2rem;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.MainGridItemOverlay {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #FF000000;
+}
+
+.MainGridItemBackground {
+    width: 100%;
+    object-fit: cover;
+}
