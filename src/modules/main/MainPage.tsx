@@ -1,8 +1,10 @@
 import * as React from "react";
-import './MainPage.css'
+import './MainPage.css';
 import { MainPageItemData } from "./MainPageItem";
-import MenuItems from '../../configs/MainCategories.json'
+import MenuItems from '../../configs/MainCategories.json';
 import CategoryPage from "../category/CategoryPage";
+import Logo from '../../assets/logo.png'
+
 
 const MenuItemString = MenuItems as any
 
@@ -20,19 +22,24 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
         })
 
         return (
-            <div style={{ margin: "0px 10vw 0px 10vw" }}>
+            <div>
                 {/* Top container */}
-                <div style={{ width: "100%", height: "100px", position: "relative" }}>
+                <div style={{ backgroundColor: "#fff", width: "calc(100% - 20vw)", height: "100px", position: "fixed", overflow: "hidden", top: 0, margin: "0px 10vw 0px 10vw" }}>
+
+                    <img src={Logo} style={{ height: "80px", marginTop: "10px" }} />
 
                     {/* Menu items */}
                     <div style={{ position: "absolute", bottom: "0", right: "0", marginBottom: ".7vw" }}>
                         {items}
                     </div>
+                    <div style={{ width: "100%", height: "1px", backgroundColor: "rgba(0, 0, 0, 0.1)" }} />
                 </div>
+                <div style={{ margin: "100px 10vw 0px 10vw" }}>
 
-                {/* Bottom border line */}
-                <div style={{ width: "100%", height: "1px", backgroundColor: "rgba(0, 0, 0, 0.1)" }} />
-                <CategoryPage />
+                    {/* Bottom border line */}
+
+                    <CategoryPage />
+                </div>
             </div>
         )
     }
