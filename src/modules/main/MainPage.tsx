@@ -27,9 +27,6 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
         const items = menuItems.map((item) => {
             return <text className={"MenuTitle"} onClick={this.onClickItem}>{item}</text>
         })
-
-        console.log(this.state)
-
         return (
             <div>
                 {/* Top container */}
@@ -47,7 +44,7 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
 
                     {/* Bottom border line */}
 
-                    <CategoryPage path={"arts"} />
+                    <CategoryPage path={this.state.currentPath} />
                 </div>
             </div>
         )
