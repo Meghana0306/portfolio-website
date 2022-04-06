@@ -1,32 +1,49 @@
 import * as React from "react";
-import CategoryPageItem, { CategoryPageItemData } from "./CategoryPageItem";
+import CategoryPageItem, { CategoryPageItemData, CategoryPageItemsProps } from "./CategoryPageItem";
 import './CategoryPage.css'
 
-export default class CategoryPage extends React.Component<CategoryPageProps, {}> {
+export default class CategoryPage extends React.Component<CategoryPageProps, CategoryPageState> {
+
+
+    constructor(props: CategoryPageProps) {
+        super(props)
+        const data: any = this.importAll(props.path)
+        this.state = { images: data }
+    }
 
     render() {
-        const item: CategoryPageItemData = {
-            name : "Name is name",
-            image: "image itself"
-        }
+        console.log("TestTest", this.state)
+        const items = Object.keys(this.state.images).map((item: string) => {
+            const itemProp: CategoryPageItemData = {
+                name: item,
+                image: (this.state.images[item]).toString(),
+                description: ""
+            }
+            return <CategoryPageItem index={1} item={itemProp} />
+        })
+
+
         return (
             <div className="CategoryGrid">
-                <CategoryPageItem item={item} index={0}/>
-                <CategoryPageItem item={item} index={1}/>
-                <CategoryPageItem item={item} index={2}/>
-                <CategoryPageItem item={item} index={3}/>
-                <CategoryPageItem item={item} index={4}/>
-                <CategoryPageItem item={item} index={5}/>
-                <CategoryPageItem item={item} index={6}/>
-                <CategoryPageItem item={item} index={7}/>
-                <CategoryPageItem item={item} index={8}/>
-                <CategoryPageItem item={item} index={9}/>
-                <CategoryPageItem item={item} index={10}/>
+                {items}
             </div>
         )
+    }
+
+    importAll = (path: string): any => {
+        const resource = require.context('../../assets/arts', false, /\.(webp|png|jpe?g|svg)$/)
+        let images: any = {};
+        resource.keys().map((item: any, _: any) => {
+            images[item.replace('./', '')] = resource(item);
+        });
+        return images;
     }
 }
 
 interface CategoryPageProps {
-    
+    path: string
+}
+
+interface CategoryPageState {
+    images: any
 }

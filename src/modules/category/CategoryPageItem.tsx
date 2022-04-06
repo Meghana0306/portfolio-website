@@ -1,15 +1,13 @@
 import * as React from "react";
 import './CategoryPage.css'
 
-const sizes = [200, 300, 500, 400, 550, 350]
-
 export default class CategoryCategoryPageItem extends React.Component<CategoryPageItemsProps, CategoryPageItemData> {
 
     render() {
         return (
-            <div className={"CategoryGridItemContainer"} style={{height: sizes[this.props.index % sizes.length]}}>
+            <div className={"CategoryGridItemContainer"}>
                 <div className={"CategoryGridItem"}>
-                    <text>{`Item ${this.props.index}`}</text>
+                    <img src={this.props.item.image} style={{width: "100%"}}/>
                 </div>
             </div>
         )
@@ -17,7 +15,7 @@ export default class CategoryCategoryPageItem extends React.Component<CategoryPa
 
 }
 
-interface CategoryPageItemsProps {
+export interface CategoryPageItemsProps {
     index: number;
     item: CategoryPageItemData;
 }
@@ -25,4 +23,5 @@ interface CategoryPageItemsProps {
 export interface CategoryPageItemData {
     name: string;
     image: string;
+    description:string;
 }

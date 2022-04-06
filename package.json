@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-stack-grid": "^0.7.3"
+    "@types/react-stack-grid": "^0.7.3",
+    "@types/webpack-env": "^1.16.3"
   }
 }

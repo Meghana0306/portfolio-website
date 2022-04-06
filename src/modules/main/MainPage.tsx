@@ -12,6 +12,13 @@ const menuItems = Object.keys(MenuItems)
 
 export default class MainPage extends React.Component<MainPageProps, MainPageState> {
 
+    constructor(props: MainPageProps) {
+        super(props)
+        this.state = {
+            currentPath: "arts"
+        }
+    }
+
     componentDidMount() {
         this.navigateTo(Object.values(MenuItems)[0])
     }
@@ -20,6 +27,8 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
         const items = menuItems.map((item) => {
             return <text className={"MenuTitle"} onClick={this.onClickItem}>{item}</text>
         })
+
+        console.log(this.state)
 
         return (
             <div>
@@ -34,11 +43,11 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
                     </div>
                     <div style={{ width: "100%", height: "1px", backgroundColor: "rgba(0, 0, 0, 0.1)" }} />
                 </div>
-                <div style={{ margin: "100px 10vw 0px 10vw" }}>
+                <div style={{ margin: "105px 10vw 0px 10vw" }}>
 
                     {/* Bottom border line */}
 
-                    <CategoryPage />
+                    <CategoryPage path={"arts"} />
                 </div>
             </div>
         )
@@ -50,6 +59,9 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
 
     navigateTo = (path: string) => {
         window.history.pushState({}, "", `/${path}`)
+        this.setState({
+            currentPath: path
+        })
     }
 
     getMenuItem = (index: number): MainPageItemData => {
@@ -62,5 +74,5 @@ interface MainPageProps {
 }
 
 interface MainPageState {
-    currentItem: string
+    currentPath: string
 }
