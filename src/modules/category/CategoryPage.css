@@ -1,7 +1,7 @@
 .CategoryGrid {
     column-count: 3;
     column-gap: 10px;
-    margin: 10px 100px 0px 100px;
+    margin: 10px 0px 0px 0px;
 }
 
 .CategoryGridItem {
