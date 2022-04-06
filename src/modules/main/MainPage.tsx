@@ -16,7 +16,7 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
 
     render() {
         const items = menuItems.map((item) => {
-            return <text style={{ margin: "0px .5vw 0px .5vw", fontFamily: "NunitoSans", fontWeight: "600", cursor: "pointer" }} onClick={this.onClickItem}>{item}</text>
+            return <text className={"MenuTitle"} onClick={this.onClickItem}>{item}</text>
         })
 
         return (
