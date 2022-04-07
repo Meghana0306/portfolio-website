@@ -6,6 +6,7 @@
 }
 
 .CategoryGridItem {
+    cursor: default;
     width: 100%;
     height: 100%;
     display: flex;
@@ -13,12 +14,65 @@
     align-items: center;
 }
 
+.CategoryImageContainer {
+    overflow: hidden;   
+}
+
 .CategoryGridItemContainer {
     display: inline-block;
     width: 100%;
+    overflow: hidden; 
     margin-bottom: 1vw;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
 }
 
 .CategoryImage {
-    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+    transition: transform .2s;
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+}
+
+.CategoryVideo {
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.75);
+}
+
+.CategoryImage:hover {
+    transform: scale(1.1);
+}
+
+.DescriptionOverlay {
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+.DescriptionOverlay:hover {
+    animation: append-animate 1s ease-in-out;
+}
+
+@keyframes append-animate {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.DescriptionText {
+    padding: 5px;
+    font-family: "NunitoSans";
+    font-weight: "400";
+    font-size: medium;
+    text-align: justify;
+    user-select: none;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.DescriptionText {
+    content: "";
+    display: inline-block;
+    width: calc(100% - 10px);
 }

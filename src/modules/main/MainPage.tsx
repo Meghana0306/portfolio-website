@@ -29,7 +29,7 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
         return (
             <div>
                 {/* Top container */}
-                <div style={{ backgroundColor: "#fff", width: "calc(100% - 20vw)", height: "100px", position: "fixed", overflow: "hidden", top: 0, margin: "0px 10vw 0px 10vw" }}>
+                <div style={{ backgroundColor: "#fff", width: "calc(100% - 20vw)", height: "100px", zIndex: "9", position: "fixed", overflow: "hidden", top: 0, margin: "0px 10vw 0px 10vw" }}>
 
                     <img src={Logo} style={{ height: "80px", marginTop: "10px" }} />
 
@@ -51,6 +51,8 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
 
     onClickItem = (event: any) => {
         this.navigateTo(MenuItemString[event.target.textContent.toString()])
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 
     navigateTo = (path: string) => {
