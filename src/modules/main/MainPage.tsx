@@ -57,7 +57,7 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
     }
 
     navigateTo = (path: string) => {
-        window.history.pushState({}, "", `/${path}`)
+        // window.history.pushState({}, "", `/${path}`)
         this.setState({
             currentPath: path
         })
