@@ -40,7 +40,7 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
                     </div>
                     <div style={{ width: "100%", height: "1px", backgroundColor: "rgba(0, 0, 0, 0.1)" }} />
                 </div>
-                <div style={{ margin: "105px 10vw 0px 10vw" }}>
+                <div key={this.state.currentPath} style={{ margin: "105px 10vw 0px 10vw" }}>
 
                     {/* Bottom border line */}
 
