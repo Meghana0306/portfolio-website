@@ -73,13 +73,18 @@
 .MenuTitle {
     margin: 0px .5vw 0px .5vw;
     font-family: "NunitoSans";
-    font-weight: "600";
-    font-size: medium;
+    font-weight: "400";
     user-select: none;
     cursor: pointer;
     color: rgba(0, 0, 0, 0.6);
 }
 
 .MenuTitle:hover {
+    font-weight: "600";
+    color: rgba(40, 121, 208, 0.6);
+}
+
+.MenuTitleSelected {
+    font-weight: "600";
     color: rgba(0, 0, 0, 0.9);
 }

@@ -24,7 +24,8 @@ export default class MainPage extends React.Component<MainPageProps, MainPageSta
 
     render() {
         const items = menuItems.map((item) => {
-            return <text className={"MenuTitle"} onClick={this.onClickItem}>{item}</text>
+            const selected = MenuItemString[item] === this.state.currentPath
+            return <text className={`MenuTitle ${selected ? "MenuTitleSelected" : ""}`} onClick={this.onClickItem}>{item}</text>
         })
         return (
             <div>

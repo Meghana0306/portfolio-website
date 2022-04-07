@@ -24,7 +24,7 @@ export default class CategoryCategoryPageItem extends React.Component<CategoryPa
                     }
                 </div>
 
-                <text className={"DescriptionText"}>&emsp;&emsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</text>
+                <text className={"DescriptionText"}>{`${this.props.item.description}`}</text>
             </div>
         )
     }
