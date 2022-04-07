@@ -28,8 +28,7 @@ const illustrations: any = {
     'illustration14.png': { name: 'illustration14', description: 'Lorem Ipsum' },
     'illustration15.png': { name: 'illustration15', description: 'Lorem Ipsum' },
     'illustration16.png': { name: 'illustration16', description: 'Lorem Ipsum' },
-    'illustration17.png': { name: 'illustration17', description: 'Lorem Ipsum' },
-    'illustration18.png': { name: 'illustration18', description: 'Lorem Ipsum' }
+    'illustration17.png': { name: 'illustration17', description: 'Lorem Ipsum' }
 }
 
 const animations: any = {
@@ -51,7 +50,7 @@ const animations: any = {
 
 const drawings: any = {
     'life1.jpg': { name: 'life1', description: 'Lorem Ipsum' },
-    'life2.jpeg': { name: 'life2', description: 'Lorem Ipsum' },
+    'life2.jpg': { name: 'life2', description: 'Lorem Ipsum' },
     'life3.jpeg': { name: 'life3', description: 'Lorem Ipsum' },
     'life4.jpeg': { name: 'life4', description: 'Lorem Ipsum' },
     'life5.jpg': { name: 'life5', description: 'Lorem Ipsum' },
@@ -69,7 +68,7 @@ const drawings: any = {
     'life17.jpeg': { name: 'life17', description: 'Lorem Ipsum' },
     'life18.jpeg': { name: 'life18', description: 'Lorem Ipsum' },
     'life19.jpeg': { name: 'life19', description: 'Lorem Ipsum' },
-    'life20.jpg': { name: 'life20', description: 'Lorem Ipsum' }
+    'life20.jpeg': { name: 'life20', description: 'Lorem Ipsum' }
 }
 
 const miscellaneous: any = {
@@ -115,17 +114,17 @@ export const getImagesForPath = (path: string): any => {
 const getResource = (path: string): any => {
     switch (path) {
         case 'arts':
-            return require.context('../assets/arts', false, /\.(webp|png|jpe?g|svg)$/)
+            return require.context('../assets/arts', false, /\.(mp4|gif|webp|png|jpe?g|svg)$/)
         case 'illustrations':
-            return require.context('../assets/illustrations', false, /\.(webp|png|jpe?g|svg)$/)
+            return require.context('../assets/illustrations', false, /\.(mp4|gif|webp|png|jpe?g|svg)$/)
         case 'drawings':
-            return require.context('../assets/drawings', false, /\.(webp|png|jpe?g|svg)$/)
+            return require.context('../assets/drawings', false, /\.(mp4|gif|webp|png|jpe?g|svg)$/)
         case 'animations':
-            return require.context('../assets/animations', false, /\.(webp|png|jpe?g|svg)$/)
+            return require.context('../assets/animations', false, /\.(mp4|gif|webp|png|jpe?g|svg)$/)
         case 'miscellaneous':
-            return require.context('../assets/miscellaneous', false, /\.(webp|png|jpe?g|svg)$/)
+            return require.context('../assets/miscellaneous', false, /\.(mp4|gif|webp|png|jpe?g|svg)$/)
         case 'brand':
-            return require.context('../assets/brand', false, /\.(webp|png|jpe?g|svg)$/)
+            return require.context('../assets/brand', false, /\.(mp4|gif|webp|png|jpe?g|svg)$/)
 
     }
 }

@@ -5,7 +5,6 @@ import MenuItems from '../../configs/MainCategories.json';
 import CategoryPage from "../category/CategoryPage";
 import Logo from '../../assets/logo.png'
 
-
 const MenuItemString = MenuItems as any
 
 const menuItems = Object.keys(MenuItems)
