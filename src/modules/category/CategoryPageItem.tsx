@@ -47,7 +47,7 @@ export default class CategoryCategoryPageItem extends React.Component<CategoryPa
 
     getVideoPlayer = () => {
         return (
-            <video id={this.props.item.image} key={this.props.item.image} className={"CategoryVideo"} style={{ width: "100%" }} loop muted>
+            <video id={this.props.item.name} className={"CategoryVideo"} style={{ width: "100%" }} loop muted>
                 <source src={this.props.item.image} type="video/mp4" />
             </video>
         )
