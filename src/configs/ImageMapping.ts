@@ -32,22 +32,84 @@ const illustrations: any = {
     'illustration18.png': { name: 'illustration18', description: 'Lorem Ipsum' }
 }
 
-const configs:any = {
+const animations: any = {
+    'animation1.mp4': { name: 'animation1', description: 'Lorem Ipsum' },
+    'animation2.gif': { name: 'animation2', description: 'Lorem Ipsum' },
+    'animation3.mp4': { name: 'animation3', description: 'Lorem Ipsum' },
+    'animation4.mp4': { name: 'animation4', description: 'Lorem Ipsum' },
+    'animation5.mp4': { name: 'animation5', description: 'Lorem Ipsum' },
+    'animation6.mp4': { name: 'animation6', description: 'Lorem Ipsum' },
+    'animation7.mp4': { name: 'animation7', description: 'Lorem Ipsum' },
+    'animation8.mp4': { name: 'animation8', description: 'Lorem Ipsum' },
+    'animation9.png': { name: 'animation9', description: 'Lorem Ipsum' },
+    'animation10.mp4': { name: 'animation10', description: 'Lorem Ipsum' },
+    'animation11.png': { name: 'animation11', description: 'Lorem Ipsum' },
+    'animation12.mp4': { name: 'animation12', description: 'Lorem Ipsum' },
+    'animation13.mp4': { name: 'animation13', description: 'Lorem Ipsum' },
+    'animation14.mp4': { name: 'animation14', description: 'Lorem Ipsum' }
+}
+
+const drawings: any = {
+    'life1.jpg': { name: 'life1', description: 'Lorem Ipsum' },
+    'life2.jpeg': { name: 'life2', description: 'Lorem Ipsum' },
+    'life3.jpeg': { name: 'life3', description: 'Lorem Ipsum' },
+    'life4.jpeg': { name: 'life4', description: 'Lorem Ipsum' },
+    'life5.jpg': { name: 'life5', description: 'Lorem Ipsum' },
+    'life6.jpg': { name: 'life6', description: 'Lorem Ipsum' },
+    'life7.jpg': { name: 'life7', description: 'Lorem Ipsum' },
+    'life8.jpg': { name: 'life8', description: 'Lorem Ipsum' },
+    'life9.jpg': { name: 'life9', description: 'Lorem Ipsum' },
+    'life10.jpg': { name: 'life10', description: 'Lorem Ipsum' },
+    'life11.jpeg': { name: 'life11', description: 'Lorem Ipsum' },
+    'life12.jpg': { name: 'life12', description: 'Lorem Ipsum' },
+    'life13.jpg': { name: 'life13', description: 'Lorem Ipsum' },
+    'life14.jpeg': { name: 'life14', description: 'Lorem Ipsum' },
+    'life15.jpeg': { name: 'life15', description: 'Lorem Ipsum' },
+    'life16.jpeg': { name: 'life16', description: 'Lorem Ipsum' },
+    'life17.jpeg': { name: 'life17', description: 'Lorem Ipsum' },
+    'life18.jpeg': { name: 'life18', description: 'Lorem Ipsum' },
+    'life19.jpeg': { name: 'life19', description: 'Lorem Ipsum' },
+    'life20.jpg': { name: 'life20', description: 'Lorem Ipsum' }
+}
+
+const miscellaneous: any = {
+    'miscellaneous1.mp4': { name: 'miscellaneous1', description: 'Lorem Ipsum' },
+    'miscellaneous2.mp4': { name: 'miscellaneous2', description: 'Lorem Ipsum' },
+    'miscellaneous3.jpg': { name: 'miscellaneous3', description: 'Lorem Ipsum' },
+    'miscellaneous4.mp4': { name: 'miscellaneous4', description: 'Lorem Ipsum' },
+    'miscellaneous5.mp4': { name: 'miscellaneous5', description: 'Lorem Ipsum' }
+}
+
+const brand: any = {
+    'brand1.jpg': { name: 'brand1', description: 'Lorem Ipsum' },
+    'brand2.gif': { name: 'brand2', description: 'Lorem Ipsum' },
+    'brand3.png': { name: 'brand3', description: 'Lorem Ipsum' },
+    'brand4.png': { name: 'brand4', description: 'Lorem Ipsum' },
+    'brand5.png': { name: 'brand5', description: 'Lorem Ipsum' },
+    'brand6.mp4': { name: 'brand6', description: 'Lorem Ipsum' },
+    'brand7.png': { name: 'brand7', description: 'Lorem Ipsum' }
+}
+
+const configs: any = {
     arts: arts,
-    illustrations: illustrations
+    illustrations: illustrations,
+    animations: animations,
+    drawings: drawings,
+    miscellaneous: miscellaneous,
+    brand: brand
 }
 
 export const getImagesForPath = (path: string): any => {
     const resource = getResource(path)
     let images: any = {};
-        resource.keys().map((item: any, _: any) => {
-            const name = item.replace('./', '')
-            images[name] = {
-                url: resource(item),
-                data: configs[path][name]
-            };
-        });
-        return images;
+    resource.keys().map((item: any, _: any) => {
+        const name = item.replace('./', '')
+        images[name] = {
+            url: resource(item),
+            data: configs[path][name]
+        };
+    });
+    return images;
 }
 
 const getResource = (path: string): any => {
