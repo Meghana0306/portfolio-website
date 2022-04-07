@@ -18,7 +18,7 @@ export default class CategoryCategoryPageItem extends React.Component<CategoryPa
                         this.props.item.image.toString().endsWith(".mp4") ? this.getVideoPlayer()
                             : (
                                 <div className={"CategoryImageContainer"}>
-                                    <img src={this.props.item.image} className={"CategoryImage"} style={{ width: "100%" }} />
+                                    <img key={this.props.item.image} src={this.props.item.image} className={"CategoryImage"} style={{ width: "100%" }} />
                                 </div>
                             )
                     }
@@ -47,7 +47,7 @@ export default class CategoryCategoryPageItem extends React.Component<CategoryPa
 
     getVideoPlayer = () => {
         return (
-            <video id={this.props.item.name} className={"CategoryVideo"} style={{ width: "100%" }} loop muted>
+            <video id={this.props.item.image} key={this.props.item.image} className={"CategoryVideo"} style={{ width: "100%" }} loop muted>
                 <source src={this.props.item.image} type="video/mp4" />
             </video>
         )
