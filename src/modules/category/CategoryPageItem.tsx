@@ -1,29 +1,36 @@
 import * as React from "react";
 import './CategoryPage.css'
 
-export default class CategoryCategoryPageItem extends React.Component<CategoryPageItemsProps, CategoryPageItemData> {
-
-    constructor(props: CategoryPageItemsProps) {
-        super(props)
-    }
+export default class CategoryCategoryPageItem extends React.Component<CategoryPageItemsProps, CategoryPageItemState> {
 
     render() {
-        console.log("TestTest", this.props.item.image.toString().endsWith(".mp4"))
-        console.log(this.props.item.image)
         return (
-            <div className={"CategoryGridItemContainer"}>
+            <div className={"CategoryGridItemContainer"} onMouseOver={this.onMouseEnter} onMouseOut={this.onMouseExit}>
                 <div className={"CategoryGridItem"}>
                     {
-                        this.props.item.image.toString().endsWith(".mp4") ?
-                            (<video className={"CategoryImage"} style={{ width: "100%" }} autoPlay muted> 
-                            <source src={this.props.item.image} type="video/mp4"/>
-                            </video>)
+                        this.props.item.image.toString().endsWith(".mp4") ? this.getVideoPlayer()
                             : (<img src={this.props.item.image} className={"CategoryImage"} style={{ width: "100%" }} />)
                     }
-
-
                 </div>
             </div>
+        )
+    }
+
+    onMouseEnter = () => {
+        const player = (document.getElementById(this.props.item.name)) as HTMLVideoElement
+        if (player) player.play()
+    }
+
+    onMouseExit = () => {
+        const player = (document.getElementById(this.props.item.name)) as HTMLVideoElement
+        if (player) player.pause()
+    }
+
+    getVideoPlayer = () => {
+        return (
+            <video id={this.props.item.name} className={"CategoryImage"} style={{ width: "100%" }} loop muted>
+                <source src={this.props.item.image} type="video/mp4" />
+            </video>
         )
     }
 
@@ -38,4 +45,8 @@ export interface CategoryPageItemData {
     name: string;
     image: string;
     description: string;
+}
+
+interface CategoryPageItemState {
+
 }
